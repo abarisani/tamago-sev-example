@@ -4,15 +4,15 @@
 # that can be found in the LICENSE file.
 
 TAMAGO ?= $(shell go tool -n github.com/usbarmory/tamago/cmd/tamago)
-BUILD_TAGS = linkcpuinit,linkramsize,linkramstart,linkprintk
+BUILD_TAGS = linkcpuinit,linkramsize,linkramstart,linkprintk,shared_stack
 SHELL = /bin/bash
 APP ?= tamago-sev-example
 
 IMAGE_BASE := 10000000
 TEXT_START := $(shell echo $$((16#$(IMAGE_BASE) + 16#10000)))
-LDFLAGS := -s -w -E cpuinit -T $(TEXT_START) -R 0x1000 -X 'main.Console=${CONSOLE}'
+LDFLAGS := -E cpuinit -T $(TEXT_START) -R 0x1000 -X 'main.Console=${CONSOLE}'
 GOFLAGS := -tags ${BUILD_TAGS} -trimpath -ldflags "${LDFLAGS}"
-GOENV := GOOS=tamago GOOSPKG=github.com/usbarmory/tamago-sev-example GOARCH=amd64
+GOENV := GOOS=tamago GOOSPKG=github.com/usbarmory/tamago/goos GOARCH=amd64
 
 OVMF ?= OVMF.amdsev.fd
 OVMFCODE ?= OVMF_CODE.fd

@@ -12,11 +12,11 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 	"fmt"
-	"runtime/goos"
 
 	"filippo.io/keygen"
 	"golang.org/x/crypto/ssh"
 
+	"github.com/usbarmory/tamago/goos"
 	"github.com/usbarmory/tamago/kvm/sev"
 )
 

@@ -2,6 +2,9 @@ module github.com/usbarmory/tamago-sev-example
 
 go 1.27.1
 
+replace github.com/usbarmory/tamago => /mnt/git/public/tamago
+replace github.com/usbarmory/go-boot => /mnt/git/public/go-boot
+
 tool github.com/usbarmory/tamago/cmd/tamago
 
 require (

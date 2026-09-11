@@ -10,13 +10,13 @@ import (
 	"errors"
 	"fmt"
 	"regexp"
-	"runtime/goos"
 	"strconv"
 	"strings"
 	"sync"
 	"time"
 
 	"github.com/usbarmory/tamago/amd64"
+	"github.com/usbarmory/tamago/goos"
 
 	"github.com/usbarmory/go-boot/shell"
 )

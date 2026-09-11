@@ -11,12 +11,11 @@ import (
 	"net"
 	"net/http"
 	_ "net/http/pprof"
-	"os/signal"
 	"regexp"
-	"runtime/goos"
 	"strings"
 	"time"
 
+	"github.com/usbarmory/tamago/goos"
 	"github.com/usbarmory/tamago/kvm/virtio"
 	"github.com/usbarmory/tamago/soc/intel/ioapic"
 	"github.com/usbarmory/tamago/soc/intel/pci"
@@ -115,7 +114,7 @@ func virtioNetCmd(_ *shell.Interface, arg []string) (res string, err error) {
 	startInterruptHandler(nic, iface)
 
 	// ensure ISR is running before starting the interface
-	for !signal.Waiting() {
+	for !goos.SignalReady() {
 		time.Sleep(1 * time.Millisecond)
 	}
 

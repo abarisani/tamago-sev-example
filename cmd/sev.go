@@ -12,10 +12,10 @@ import (
 	"log"
 	"net"
 	"regexp"
-	"runtime/goos"
 
 	"github.com/google/go-sev-guest/verify"
 
+	"github.com/usbarmory/tamago/goos"
 	"github.com/usbarmory/tamago/kvm/sev"
 
 	"github.com/usbarmory/go-boot/shell"
