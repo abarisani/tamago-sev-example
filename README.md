@@ -86,6 +86,23 @@ SignatureR .........: 1e6da2bac3327aedfa27fb675b92289d8a76ab8d1fa61b0d5c66d25b4e
 SignatureS .........: 94cb3a662bd72146e3e31ba0a776f1b3ccba192c9d714d1631ac94d6cc3df9f9334b023e8bd3381cb32379ad45879cde
 ```
 
+Measurement
+===========
+
+The following shows an example measurement using
+[sev-snp-measure](https://github.com/virtee/sev-snp-measure):
+
+```
+sev-snp-measure                                                             \
+  --mode snp                                                                \
+  --vcpus 48 --vcpu-family 25 --vcpu-model 160 --vcpu-stepping 2            \
+  --ovmf OVMF.amdsev.fd --kernel tamago-sev-example.efi --output-format hex \
+81aee09d5c062ee862df833df9865a7bd54605e8dcbba8690c4bade521916c59234edeaad51ee801b09086878e6b13b9
+```
+
+Note that the `vcpu*` arguments must be adapted to your specific instance
+processor.
+
 Compiling
 =========
 

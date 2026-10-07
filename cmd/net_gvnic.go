@@ -9,7 +9,6 @@ import (
 	"fmt"
 	"net"
 	"regexp"
-	"time"
 
 	"github.com/usbarmory/tamago/goos"
 	"github.com/usbarmory/tamago/kvm/gvnic"
@@ -94,11 +93,6 @@ func gvnicCmd(_ *shell.Interface, arg []string) (res string, err error) {
 	}
 
 	irq.StartHandler(GVE_IRQ, isr)
-
-	// ensure ISR is running before starting the interface
-	for !goos.SignalReady() {
-		time.Sleep(1 * time.Millisecond)
-	}
 
 	if len(arg[2]) > 0 {
 		startDebugServices(arg[0], gve.MAC())

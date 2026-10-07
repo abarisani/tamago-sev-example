@@ -9,7 +9,6 @@ import (
 	"fmt"
 	"net"
 	"regexp"
-	"time"
 
 	"github.com/usbarmory/tamago/goos"
 	"github.com/usbarmory/tamago/kvm/virtio"
@@ -124,14 +123,10 @@ func virtioNetCmd(_ *shell.Interface, arg []string) (res string, err error) {
 		return
 	}
 
-	irq.StartHandler(nic.IRQ, isr)
-
-	// ensure ISR is running before starting the interface
-	for !goos.SignalReady() {
-		time.Sleep(1 * time.Millisecond)
-	}
-
-	go nic.Start()
+	go func() {
+		irq.StartHandler(nic.IRQ, isr)
+		nic.Start()
+	}()
 
 	mac, _ := iface.Stack.HardwareAddress()
 
