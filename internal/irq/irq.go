@@ -40,8 +40,8 @@ func StartHandler(id int, fn func()) {
 		switch irq {
 		case id:
 			fn()
-		//case COM1_IRQ:
-		//	ch <- true
+		case COM1_IRQ:
+			ch <- true
 		default:
 			log.Printf("internal error, unexpected IRQ %d", irq)
 		}

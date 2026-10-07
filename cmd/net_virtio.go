@@ -122,8 +122,10 @@ func virtioNetCmd(_ *shell.Interface, arg []string) (res string, err error) {
 		return
 	}
 
-	irq.StartHandler(nic.IRQ, isr)
-	go nic.Start()
+	go func() {
+		irq.StartHandler(nic.IRQ, isr)
+		nic.Start()
+	}()
 
 	mac, _ := iface.Stack.HardwareAddress()
 
