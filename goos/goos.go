@@ -24,12 +24,13 @@ var (
 	RamSize        uint
 	RamStackOffset uint
 
-	Bloc   uintptr
-	Exit   func(code int32)
-	Idle   func(until int64)
-	ProcID func() uint64
-	Task   func(sp, mp, gp, fn unsafe.Pointer)
-	Wake   func(procid uint64)
+	Bloc    uintptr
+	BlocMax uintptr
+	Exit    func(code int32)
+	Idle    func(until int64)
+	ProcID  func() uint64
+	Task    func(sp, mp, gp, fn unsafe.Pointer)
+	Wake    func(procid uint64)
 )
 
 func CPUinit()

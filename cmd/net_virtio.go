@@ -8,9 +8,7 @@ package cmd
 import (
 	"fmt"
 	"net"
-	"os/signal"
 	"regexp"
-	"time"
 
 	"github.com/usbarmory/tamago/kvm/virtio"
 	"github.com/usbarmory/tamago/soc/intel/pci"
@@ -125,12 +123,6 @@ func virtioNetCmd(_ *shell.Interface, arg []string) (res string, err error) {
 	}
 
 	irq.StartHandler(nic.IRQ, isr)
-
-	// ensure ISR is running before starting the interface
-	for !signal.Waiting() {
-		time.Sleep(1 * time.Millisecond)
-	}
-
 	go nic.Start()
 
 	mac, _ := iface.Stack.HardwareAddress()

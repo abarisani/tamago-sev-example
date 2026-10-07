@@ -8,9 +8,7 @@ package cmd
 import (
 	"fmt"
 	"net"
-	"os/signal"
 	"regexp"
-	"time"
 
 	"github.com/usbarmory/tamago/kvm/gvnic"
 	"github.com/usbarmory/tamago/soc/intel/pci"
@@ -94,11 +92,6 @@ func gvnicCmd(_ *shell.Interface, arg []string) (res string, err error) {
 	}
 
 	irq.StartHandler(GVE_IRQ, isr)
-
-	// ensure ISR is running before starting the interface
-	for !signal.Waiting() {
-		time.Sleep(1 * time.Millisecond)
-	}
 
 	if len(arg[2]) > 0 {
 		startDebugServices(arg[0], gve.MAC())
