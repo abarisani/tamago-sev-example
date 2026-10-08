@@ -48,8 +48,8 @@ github.com/usbarmory/go-boot v1.9.2-0.20260914074832-66d46a750a07 h1:d3xicW3PsAG
 github.com/usbarmory/go-boot v1.9.2-0.20260914074832-66d46a750a07/go.mod h1:4Jyp3HAmRZDm9e90KZWBZHKRAKC2QdjjM2iC2jGgMSs=
 github.com/usbarmory/go-net v0.0.0-20260714134120-c2c964e7084c h1:ubYfZqO8u2mV0stDpvCTEfGp6e0aLBda/OAGniDdQzs=
 github.com/usbarmory/go-net v0.0.0-20260714134120-c2c964e7084c/go.mod h1:nzEcbE2bexZNdjKCZaqAEr+IyPQ+WiwWGaYsAwPcwsc=
-github.com/usbarmory/tamago v1.27.2-0.20261006103031-94667f094bd0 h1:tXdKbBSqU5E5hYdyCuuZyJrvE9v7szq8DVImu/nnrl0=
-github.com/usbarmory/tamago v1.27.2-0.20261006103031-94667f094bd0/go.mod h1:nLuV/bBHbtlpWOJftse7cr219b/Z6vitr5fyv/OHkK4=
+github.com/usbarmory/tamago v1.27.2-0.20261008073616-026243ef1d58 h1:h+bytRi4z/aITZSGCxulIZT+WzYSB632IIC8X8kQWm8=
+github.com/usbarmory/tamago v1.27.2-0.20261008073616-026243ef1d58/go.mod h1:nLuV/bBHbtlpWOJftse7cr219b/Z6vitr5fyv/OHkK4=
 go.uber.org/multierr v1.11.0 h1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=
 go.uber.org/multierr v1.11.0/go.mod h1:20+QtiLqy0Nd6FdQB9TLXag12DsQkrbs3htMFfDN80Y=
 golang.org/x/crypto v0.54.0 h1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=
