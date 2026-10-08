@@ -33,15 +33,14 @@ func StartHandler(id int, fn func()) {
 	ioapic.EnableInterrupt(id, id)
 	ioapic.EnableInterrupt(x64.UART0.IRQ, COM1_IRQ)
 
-	ch := make(chan bool)
-	x64.UART0.EnableInterrupt(ch)
+	x64.UART0.EnableInterrupt()
 
 	isr := func(irq int) {
 		switch irq {
 		case id:
 			fn()
 		case COM1_IRQ:
-			ch <- true
+			x64.UART0.ServiceInterrupt()
 		default:
 			log.Printf("internal error, unexpected IRQ %d", irq)
 		}
@@ -49,11 +48,10 @@ func StartHandler(id int, fn func()) {
 
 	// optimize CPU idle management as IRQs are enabled
 	goos.Idle = func(pollUntil int64) {
-		if pollUntil == 0 {
-			return
+		if pollUntil > 0 {
+			cpu.SetAlarm(pollUntil)
 		}
 
-		cpu.SetAlarm(pollUntil)
 		cpu.WaitInterrupt()
 		cpu.SetAlarm(0)
 	}
