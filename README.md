@@ -43,6 +43,7 @@ poke            <hex addr> <hex value>    # memory write   (use with caution)
 reset           (cold|warm)?              # reset system
 smp             <n>                       # launch SMP test
 sev                                       # AMD SEV-SNP information
+sev-cpuid       <leaf> <subleaf>          # AMD SEV-SNP CPUID function lookup
 sev-kdf                                   # AMD SEV-SNP key derivation
 sev-report      (raw|verify)?             # AMD SEV-SNP attestation report
 sev-tsc                                   # AMD SEV-SNP TSC information
@@ -109,7 +110,7 @@ Compiling
 The [TamaGo compiler](https://github.com/usbarmory/tamago-go) is automatically
 downloaded and compiled as a `go tool` by the `Makefile`.
 
-Alternatively the `TAMAGO` environment variable can overridden to use the
+Alternatively the `TAMAGO` environment variable can be overridden to use the
 [latest binary release](https://github.com/usbarmory/tamago-go/releases/latest):
 
 ```sh
